@@ -81,7 +81,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     padding: 32px 20px;
     background:
       radial-gradient(1200px 700px at 50% -10%, rgba(212, 175, 55, 0.10), transparent 60%),
@@ -92,6 +91,16 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  /* Vertical centering via auto margins — unlike justify-content:center
+     it never clips the top of a page taller than the viewport (that was
+     the unscrollable bug). */
+  .page {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
   .brand {
     display: flex;
     align-items: center;
@@ -234,6 +243,7 @@
 </head>
 <body>
 
+<div class="page">
 <header class="brand">
   <svg width="46" height="46" viewBox="0 0 24 24" fill="none" aria-hidden="true">
     <rect x="2" y="2" width="20" height="20" rx="5" stroke="#d4af37" stroke-width="1.5"/>
@@ -297,6 +307,7 @@
 <footer>
   <a href="https://nekkha.com">nekkha.com</a> · the NEXA gaming platform
 </footer>
+</div>
 
 </body>
 </html>

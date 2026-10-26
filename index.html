@@ -3,13 +3,65 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>games.nekkha.com — Play for NEXA</title>
-<meta name="description" content="games.nekkha.com — the NEXA gaming platform. Ludo is live: provably fair, peer-to-peer, winner takes the pot. Snake &amp; Ladder and Chess coming soon." />
+<title>games.nekkha.com — Play Provably Fair Board Games for NEXA</title>
+<meta name="description" content="games.nekkha.com — the NEXA gaming platform. Ludo is live: provably fair commit-reveal dice, peer-to-peer matches, winner takes the pot. Snake &amp; Ladder and Chess coming soon." />
+<meta name="keywords" content="ludo, ludo online, play ludo, nexa, nexa crypto, crypto games, board games online, multiplayer ludo, snake and ladder, chess online, provably fair, p2p games, nekkha, games.nekkha.com" />
+<meta name="robots" content="index, follow" />
 <meta name="theme-color" content="#07091a" />
-<meta property="og:title" content="games.nekkha.com — Play for NEXA" />
-<meta property="og:description" content="Provably fair, peer-to-peer board games played for NEXA. Ludo is live now." />
+<meta name="application-name" content="games.nekkha.com" />
+<link rel="canonical" href="https://games.nekkha.com/" />
+<link rel="icon" href="/icon.svg" type="image/svg+xml" />
+<link rel="apple-touch-icon" href="/icon.svg" />
+<link rel="dns-prefetch" href="https://ludo.nekkha.com" />
+<link rel="preconnect" href="https://ludo.nekkha.com" crossorigin />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://games.nekkha.com" />
+<meta property="og:site_name" content="games.nekkha.com" />
+<meta property="og:url" content="https://games.nekkha.com/" />
+<meta property="og:title" content="games.nekkha.com — Play Provably Fair Board Games for NEXA" />
+<meta property="og:description" content="The NEXA gaming platform. Ludo is live — provably fair, peer-to-peer, winner takes the pot. Snake &amp; Ladder and Chess coming soon." />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="games.nekkha.com — Play Provably Fair Board Games for NEXA" />
+<meta name="twitter:description" content="The NEXA gaming platform. Ludo is live — provably fair, peer-to-peer, winner takes the pot. Snake &amp; Ladder and Chess coming soon." />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "games.nekkha.com",
+  "url": "https://games.nekkha.com",
+  "description": "Provably fair, peer-to-peer board games played for NEXA. Winner takes the pot — every game verifiable on-chain.",
+  "publisher": { "@type": "Organization", "name": "Nekkha", "url": "https://nekkha.com" },
+  "hasPart": [
+    {
+      "@type": "VideoGame",
+      "name": "Ludo",
+      "url": "https://ludo.nekkha.com",
+      "gamePlatform": "Web Browser",
+      "playMode": "MultiPlayer",
+      "genre": ["BoardGame", "Multiplayer", "Strategy"],
+      "applicationCategory": "Game",
+      "operatingSystem": "Any",
+      "description": "Play Ludo head-to-head for NEXA. Provably fair, peer-to-peer, winner takes the pot.",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "publisher": { "@type": "Organization", "name": "Nekkha", "url": "https://nekkha.com" }
+    },
+    {
+      "@type": "VideoGame",
+      "name": "Snake & Ladder",
+      "url": "https://snakeladder.nekkha.com",
+      "applicationCategory": "Game",
+      "description": "Coming soon — provably fair Snake & Ladder for NEXA."
+    },
+    {
+      "@type": "VideoGame",
+      "name": "Chess",
+      "url": "https://chess.nekkha.com",
+      "applicationCategory": "Game",
+      "description": "Coming soon — ranked head-to-head chess for NEXA."
+    }
+  ]
+}
+</script>
 <style>
   :root {
     --bg: #07091a;
@@ -192,12 +244,13 @@
   </svg>
   <h1>games<span class="gold">.nekkha.com</span></h1>
 </header>
+<main style="display:flex;flex-direction:column;align-items:center;width:100%;max-width:900px;">
 <p class="tagline">
   Provably fair, peer-to-peer board games played for <strong>NEXA</strong>.
   Winner takes the pot — every game verifiable on-chain.
 </p>
 
-<div class="grid">
+<nav class="grid" aria-label="Games">
   <a class="game live" href="https://ludo.nekkha.com" target="_blank" rel="noopener">
     <span class="live-dot">Live</span>
     <span class="icon">
@@ -238,7 +291,8 @@
     <p class="desc">Full-ranked head-to-head chess. Same engine, same escrow, your clock.</p>
     <span class="chip">Coming soon</span>
   </div>
-</div>
+</nav>
+</main>
 
 <footer>
   <a href="https://nekkha.com">nekkha.com</a> · the NEXA gaming platform

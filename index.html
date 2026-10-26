@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>games.nekkha.com — Play for NEXA</title>
+<meta name="description" content="games.nekkha.com — the NEXA gaming platform. Ludo is live: provably fair, peer-to-peer, winner takes the pot. Snake &amp; Ladder and Chess coming soon." />
+<meta name="theme-color" content="#07091a" />
+<meta property="og:title" content="games.nekkha.com — Play for NEXA" />
+<meta property="og:description" content="Provably fair, peer-to-peer board games played for NEXA. Ludo is live now." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://games.nekkha.com" />
+<style>
+  :root {
+    --bg: #07091a;
+    --surface: #0e1230;
+    --surface-2: #141943;
+    --border: #232a5e;
+    --gold: #d4af37;
+    --gold-bright: #f0c243;
+    --green: #2fd47e;
+    --text: #ecefff;
+    --text-dim: #9aa0c8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px;
+    background:
+      radial-gradient(1200px 700px at 50% -10%, rgba(212, 175, 55, 0.10), transparent 60%),
+      radial-gradient(900px 600px at 85% 110%, rgba(47, 212, 126, 0.06), transparent 55%),
+      var(--bg);
+    color: var(--text);
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Inter, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 8px;
+  }
+  .brand h1 {
+    font-size: clamp(26px, 6vw, 40px);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+  .brand h1 .gold { color: var(--gold-bright); }
+  .tagline {
+    margin-bottom: 42px;
+    font-size: 15px;
+    color: var(--text-dim);
+    text-align: center;
+    max-width: 520px;
+    line-height: 1.55;
+  }
+  .tagline strong { color: var(--text); font-weight: 600; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 18px;
+    width: 100%;
+    max-width: 340px;
+  }
+  @media (min-width: 720px) {
+    .grid { grid-template-columns: repeat(3, 1fr); max-width: 860px; gap: 22px; }
+  }
+
+  .game {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 22px 26px;
+    border-radius: 22px;
+    border: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(0,0,0,0.25)), var(--surface);
+    text-decoration: none;
+    color: inherit;
+    transition: transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+  }
+  .game.live {
+    border-color: rgba(212, 175, 55, 0.55);
+    box-shadow: 0 0 34px rgba(212, 175, 55, 0.14);
+  }
+  .game.live:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold-bright);
+    box-shadow: 0 12px 44px rgba(212, 175, 55, 0.22);
+  }
+  .game.soon {
+    opacity: 0.55;
+    cursor: not-allowed;
+    filter: saturate(0.6);
+  }
+
+  .game .icon {
+    width: 68px;
+    height: 68px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    background: var(--surface-2);
+    font-size: 32px;
+    line-height: 1;
+  }
+  .game.live .icon { border-color: rgba(212,175,55,0.5); }
+  .game h2 { font-size: 20px; font-weight: 800; letter-spacing: -0.01em; }
+  .game .desc {
+    margin-top: 7px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--text-dim);
+    text-align: center;
+  }
+
+  .chip {
+    margin-top: 18px;
+    display: inline-block;
+    padding: 7px 16px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .game.live .chip { background: var(--gold); color: #07091a; }
+  .game.soon .chip {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+  }
+  .game.live .chip::after { content: " →"; }
+
+  .live-dot {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green);
+  }
+  .live-dot::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 10px var(--green);
+    animation: pulse 1.8s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+  }
+
+  footer {
+    margin-top: 48px;
+    font-size: 12px;
+    color: var(--text-dim);
+    letter-spacing: 0.04em;
+    text-align: center;
+  }
+  footer a { color: inherit; text-decoration: none; }
+  footer a:hover { color: var(--gold-bright); }
+</style>
+</head>
+<body>
+
+<header class="brand">
+  <svg width="46" height="46" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <rect x="2" y="2" width="20" height="20" rx="5" stroke="#d4af37" stroke-width="1.5"/>
+    <circle cx="8" cy="8" r="1.6" fill="#d4af37"/>
+    <circle cx="16" cy="16" r="1.6" fill="#d4af37"/>
+    <circle cx="16" cy="8" r="1.6" fill="#e5484d"/>
+    <circle cx="8" cy="16" r="1.6" fill="#f5c518"/>
+  </svg>
+  <h1>games<span class="gold">.nekkha.com</span></h1>
+</header>
+<p class="tagline">
+  Provably fair, peer-to-peer board games played for <strong>NEXA</strong>.
+  Winner takes the pot — every game verifiable on-chain.
+</p>
+
+<div class="grid">
+  <a class="game live" href="https://ludo.nekkha.com" target="_blank" rel="noopener">
+    <span class="live-dot">Live</span>
+    <span class="icon">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect x="2" y="2" width="20" height="20" rx="5" stroke="#d4af37" stroke-width="1.5"/>
+        <circle cx="8" cy="8" r="1.6" fill="#d4af37"/>
+        <circle cx="16" cy="16" r="1.6" fill="#d4af37"/>
+        <circle cx="16" cy="8" r="1.6" fill="#e5484d"/>
+        <circle cx="8" cy="16" r="1.6" fill="#f5c518"/>
+      </svg>
+    </span>
+    <h2>Ludo</h2>
+    <p class="desc">2–4 player matches, commit-reveal dice you can verify, instant NEXA payouts.</p>
+    <span class="chip">Play now</span>
+  </a>
+
+  <div class="game soon" aria-disabled="true" title="Coming soon — snakeladder.nekkha.com">
+    <span class="icon" aria-hidden="true">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+        <path d="M6 20c0-4 3-4.5 3-7.5S6 9.5 6 6.5C6 4 7.6 2.5 10 2.5S14 4 14 6.5s-3 3.5-3 6.5 3 3.5 3 7" stroke="#9aa0c8" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="17" cy="19" r="2.2" stroke="#9aa0c8" stroke-width="1.6"/>
+        <circle cx="16.3" cy="18.4" r="0.5" fill="#9aa0c8"/><circle cx="17.7" cy="18.4" r="0.5" fill="#9aa0c8"/>
+      </svg>
+    </span>
+    <h2>Snake &amp; Ladder</h2>
+    <p class="desc">The classic climb — same provably fair dice, same winner-takes-pot.</p>
+    <span class="chip">Coming soon</span>
+  </div>
+
+  <div class="game soon" aria-disabled="true" title="Coming soon — chess.nekkha.com">
+    <span class="icon" aria-hidden="true">
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none">
+        <path d="M9 21h6M10 18h4l-.8-3.2c2.6-1.1 4.3-3.4 4.3-6.3 0-3-2-5.5-5.5-5.5S6.5 5.5 6.5 8.5c0 2.9 1.7 5.2 4.3 6.3L10 18Z" stroke="#9aa0c8" stroke-width="1.5" stroke-linejoin="round"/>
+        <path d="M12 3v3M10.5 4.5h3" stroke="#9aa0c8" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </span>
+    <h2>Chess</h2>
+    <p class="desc">Full-ranked head-to-head chess. Same engine, same escrow, your clock.</p>
+    <span class="chip">Coming soon</span>
+  </div>
+</div>
+
+<footer>
+  <a href="https://nekkha.com">nekkha.com</a> · the NEXA gaming platform
+</footer>
+
+</body>
+</html>
